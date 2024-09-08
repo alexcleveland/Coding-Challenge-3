@@ -14,8 +14,9 @@ function determinePerformanceRating(averageSales){
      return "Good";
  if (averageSales >= 4000)
      return "Satisfactory";
- if (averageSales > 4000)
- return"Needs Improvement";
+  else
+    return ("Needs Improvement");
+
  }
  // Task 3 create a function to identify top and bottom performers 
 
@@ -26,5 +27,23 @@ function determinePerformanceRating(averageSales){
         calculateAverageSales(sPerson.sales) > calculateAverageSales(max.sales) ? sPerson : max);
     const bottomperformer = sData.reduce((min, sPerson)=>
         calculateAverageSales(sPerson.sales) <calculateAverageSales(min.sales) ?  sPerson : min);
-    return(topPerformer, bottomperformer);
+    return{topPerformer, bottomperformer};
  }
+
+ // Task 4 combine to generate performace report
+  function generatePerformanceReport(sData){
+    const report = sData.map(sPerson =>{
+        const averageSales = calculateAverageSales(sPerson.sales);
+        const rating = determinePerformanceRating(averageSales);
+        return{name: sPerson.name, averageSales, rating};
+  });
+  const { topPerformer, bottomperformer}= findTopAndBottomPerformers(sData);
+  return{
+    report,
+    topPerformer: topPerformer ? topPerformer.name :null,
+    bottomperformer: bottomperformer? bottomperformer.name : null
+  };
+  }
+  
+  
+    
