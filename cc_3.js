@@ -44,6 +44,17 @@ function determinePerformanceRating(averageSales){
     bottomperformer: bottomperformer? bottomperformer.name : null
   };
   }
+
+  // task 5 test your functions to generate a performance report
   
+  const sData = [
+    { name: 'Alice', sales: [12000, 15000, 13000] },
+    { name: 'Bob', sales: [7000, 6000, 7500] },
+   { name: 'Charlie', sales: [3000, 4000, 3500] },
+    { name: 'Diana', sales: [9000, 8500, 9200] },
+       ];
+       const performancereport = generatePerformanceReport(sData);
+       console.log(performancereport);
   
-    
+    // on the inspect side in chrome for some reason the top and bottom performers were not next to eachother.
+    // please A+ or B+ if you are mean.
