@@ -17,4 +17,14 @@ function determinePerformanceRating(averageSales){
  if (averageSales > 4000)
  return"Needs Improvement";
  }
- 
+ // Task 3 create a function to identify top and bottom performers 
+
+ function findTopAndBottomPerformers(sData){
+    if (sData.length=== 0)
+        return {topPerformer:null , bottomperformer:null};
+    const topPerformer =sData.reduce((max, sPerson) =>
+        calculateAverageSales(sPerson.sales) > calculateAverageSales(max.sales) ? sPerson : max);
+    const bottomperformer = sData.reduce((min, sPerson)=>
+        calculateAverageSales(sPerson.sales) <calculateAverageSales(min.sales) ?  sPerson : min);
+    return(topPerformer, bottomperformer);
+ }
