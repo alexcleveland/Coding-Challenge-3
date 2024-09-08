@@ -14,8 +14,8 @@ function determinePerformanceRating(averageSales){
      return "Good";
  if (averageSales >= 4000)
      return "Satisfactory";
-  else
-    return ("Needs Improvement");
+  if (averageSales => 4000)
+    return "Needs Improvement";
 
  }
  // Task 3 create a function to identify top and bottom performers 
